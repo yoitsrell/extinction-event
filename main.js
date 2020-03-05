@@ -31,3 +31,31 @@ function toggleOpacity(event) {
 	console.log("Status: " + lineStatus);
 }
 
+///////////////////////////////
+
+let items = document.querySelectorAll("#row > img");
+for(item of items) {
+	item.addEventListener('click', toggleOpacity);
+}
+
+///////
+
+
+document.querySelector("#destroy-all").addEventListener('click', destroyer);
+
+let destruction = true;
+
+function destroyer() {
+	let lineThrus = document.querySelectorAll("ol > li");
+	for(item of lineThrus) {
+		item.style.textDecoration = destruction ? "line-through" : "";
+	}
+
+
+	let opaItems = [...document.querySelectorAll("#row > img"), ...document.querySelectorAll("ul > li")];
+
+	for(item of opaItems) {
+		item.style.opacity = destruction ? "0.25" : "1";
+	}
+	destruction = !destruction;
+}
