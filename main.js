@@ -23,8 +23,8 @@ for(item of ulItems) {
 function toggleOpacity(event) {
 	let lineStatus = event.target.style.opacity;
 
-	if(lineStatus != "0.25") {
-		event.target.style.opacity = "0.25";
+	if(lineStatus != "0.0") {
+		event.target.style.opacity = "0.0";
 	} else { 
 		event.target.style.opacity = "1";
 	}
@@ -55,7 +55,16 @@ function destroyer() {
 	let opaItems = [...document.querySelectorAll("#row > img"), ...document.querySelectorAll("ul > li")];
 
 	for(item of opaItems) {
-		item.style.opacity = destruction ? "0.25" : "1";
+		item.style.opacity = destruction ? "0.0" : "1";
 	}
 	destruction = !destruction;
 }
+
+///////
+function phoenix()
+{
+    const elem = document.getElementById("destroy-all");
+    if (elem.innerText == "METEOR ME") elem.innerText = "METEOR ME";
+    else elem.innerText = "";
+} 
+phoenix()
